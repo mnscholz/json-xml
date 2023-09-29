@@ -2,7 +2,7 @@
 <xsl:stylesheet
         version="1.0"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-        xmlns:jx="http://bib-bvb.de/namespace/json-xml"
+        xmlns:jx="https://github.com/mnscholz/json-xml/"
         >
         <xsl:output method="text" encoding="UTF-8" />
         <xsl:template match="/">
