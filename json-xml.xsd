@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://bib-bvb.de/namespace/json-xml"
-	xmlns:tns="http://bib-bvb.de/namespace/json-xml"
+	targetNamespace="https://github.com/mnscholz/json-xml/"
+	xmlns:jx="https://github.com/mnscholz/json-xml/"
 	elementFormDefault="qualified">
 
-    <element name="array" type="tns:arrayType"></element>
+    <element name="array" type="jx:arrayType"></element>
 
-    <element name="object" type="tns:objectType"></element>
+    <element name="object" type="jx:objectType"></element>
 
-    <element name="null" type="tns:emptyType"></element>
+    <element name="null" type="jx:emptyType"></element>
 
-    <element name="string" type="tns:stringType"></element>
+    <element name="string" type="jx:stringType"></element>
 
-    <element name="number" type="tns:numberType"></element>
+    <element name="number" type="jx:numberType"></element>
 
-    <element name="true" type="tns:emptyType"></element>
+    <element name="true" type="jx:emptyType"></element>
 
-	<attribute name="key" type="tns:stringType"></attribute>
+	<attribute name="key" type="jx:stringType"></attribute>
 
     <simpleType name="stringType">
     	<restriction base="string"></restriction>
@@ -28,19 +28,19 @@
     	</restriction>
     </simpleType>
     
-    <element name="false" type="tns:emptyType"></element>
+    <element name="false" type="jx:emptyType"></element>
 	
 	<complexType name="emptyType"></complexType>
 
     <complexType name="arrayType">
     	<choice minOccurs="0" maxOccurs="unbounded">
-		   	<element ref="tns:array"></element>
-		   	<element ref="tns:false"></element>
-		   	<element ref="tns:null"></element>
-		   	<element ref="tns:number"></element>
-		   	<element ref="tns:object"></element>
-		   	<element ref="tns:string"></element>
-		   	<element ref="tns:true"></element>
+		   	<element ref="jx:array"></element>
+		   	<element ref="jx:false"></element>
+		   	<element ref="jx:null"></element>
+		   	<element ref="jx:number"></element>
+		   	<element ref="jx:object"></element>
+		   	<element ref="jx:string"></element>
+		   	<element ref="jx:true"></element>
     	</choice>
     </complexType>
 
@@ -49,13 +49,13 @@
     		<element name="key" >
     			<complexType>
 			    	<choice minOccurs="1" maxOccurs="1">
-					   	<element ref="tns:array"></element>
-					   	<element ref="tns:false"></element>
-					   	<element ref="tns:null"></element>
-					   	<element ref="tns:number"></element>
-					   	<element ref="tns:object"></element>
-					   	<element ref="tns:string"></element>
-					   	<element ref="tns:true"></element>
+					   	<element ref="jx:array"></element>
+					   	<element ref="jx:false"></element>
+					   	<element ref="jx:null"></element>
+					   	<element ref="jx:number"></element>
+					   	<element ref="jx:object"></element>
+					   	<element ref="jx:string"></element>
+					   	<element ref="jx:true"></element>
 			    	</choice>
     				<attribute name="name"></attribute>
     			</complexType>
