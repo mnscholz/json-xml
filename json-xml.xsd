@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://bib-bvb.de/namespace/json-xml"
+	xmlns:tns="http://bib-bvb.de/namespace/json-xml"
+	elementFormDefault="qualified">
+
+    <element name="array" type="tns:arrayType"></element>
+
+    <element name="object" type="tns:objectType"></element>
+
+    <element name="null" type="tns:emptyType"></element>
+
+    <element name="string" type="tns:stringType"></element>
+
+    <element name="number" type="tns:numberType"></element>
+
+    <element name="true" type="tns:emptyType"></element>
+
+	<attribute name="key" type="tns:stringType"></attribute>
+
+    <simpleType name="stringType">
+    	<restriction base="string"></restriction>
+    </simpleType>
+
+    <simpleType name="numberType">
+    	<restriction base="string">
+    		<pattern value="-?([1-9][0-9]*|0)(\.[0-9]+)?[eE][+-]?[0-9]+" />
+    	</restriction>
+    </simpleType>
+    
+    <element name="false" type="tns:emptyType"></element>
+	
+	<complexType name="emptyType"></complexType>
+
+    <complexType name="arrayType">
+    	<choice minOccurs="0" maxOccurs="unbounded">
+		   	<element ref="tns:array"></element>
+		   	<element ref="tns:false"></element>
+		   	<element ref="tns:null"></element>
+		   	<element ref="tns:number"></element>
+		   	<element ref="tns:object"></element>
+		   	<element ref="tns:string"></element>
+		   	<element ref="tns:true"></element>
+    	</choice>
+    </complexType>
+
+    <complexType name="objectType">
+    	<sequence>
+    		<element name="key" >
+    			<complexType>
+			    	<choice minOccurs="1" maxOccurs="1">
+					   	<element ref="tns:array"></element>
+					   	<element ref="tns:false"></element>
+					   	<element ref="tns:null"></element>
+					   	<element ref="tns:number"></element>
+					   	<element ref="tns:object"></element>
+					   	<element ref="tns:string"></element>
+					   	<element ref="tns:true"></element>
+			    	</choice>
+    				<attribute name="name"></attribute>
+    			</complexType>
+    		</element>
+    	</sequence>
+    </complexType>
+
+</schema>
